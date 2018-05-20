@@ -20,38 +20,41 @@
 	
 	<script type="text/javascript">
 		
-		var app=angular.module('pinyougou',['pagination']);
-		app.controller('brandController',function($scope,$http){
-			
-			//查询品牌列表
-			$scope.findAll=function(){
-				$http.get('../brand/findAll.do').success(
-					function(response){
-						$scope.list=response;
-					}		
-				);				
+	var app=angular.module('pinyougou',['pagination']);
+	app.controller('brandController',function($scope,$http){
+		
+		//查询品牌列表
+		$scope.findAll=function(){
+			$http.get('../brand/findAll.do').success(
+				function(response){
+					$scope.list=response;
+				}		
+			);				
+		}
+		//分页控件配置currentPage:当前页   totalItems :总记录数  itemsPerPage:每页记录数  perPageOptions :分页选项  onChange:当页码变更后自动触发的方法 
+		$scope.paginationConf = {
+			currentPage: 1,
+			totalItems: 10,
+			itemsPerPage: 10,
+			perPageOptions: [10, 20, 30, 40, 50],
+			onChange: function(){
+				$scope.reloadList();
 			}
-			$scope.paginationConf = {
-					 currentPage: 1,
-					 totalItems: 10,
-					 itemsPerPage: 10,
-					 perPageOptions: [10, 20, 30, 40, 50],
-					 onChange: function(){
-					        	 $scope.reloadList();//重新加载
-					 }
-			}; 
-
-			$scope.reloadList=function(){
-				$scope.findPage($scope.paginationConf.currentPage, $scope.paginationConf.totalItems)
-			}
-			$scope.findPage=function(page,size){
-				$http.get('../brand/findPage.do?page='+page +'&size='+size).success(
-					function(response){
-						$scope.list=response.rows;//显示当前页数据 	
-						$scope.paginationConf.totalItems=response.total;//更新总记录数 
-					}		
-				);				
-			}
+		};
+		//刷新列表
+		$scope.reloadList=function(){
+			$scope.findPage( $scope.paginationConf.currentPage ,  $scope.paginationConf.itemsPerPage ); // 这里因为写成了 totalItems 而导致分页功能无法正常显示，页面数据全部加载在一行中
+		}
+		
+		//分页 
+		$scope.findPage=function(page,size){
+			$http.get('../brand/findPage.do?page='+page +'&size='+size).success(
+				function(response){
+					$scope.list=response.rows;//显示当前页数据 	
+					$scope.paginationConf.totalItems=response.total;//更新总记录数 
+				}		
+			);				
+		}
 		});
 	
 	</script>

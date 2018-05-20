@@ -26,10 +26,12 @@ public class BrandServiceImpl implements BrandService {
 	
 	@Override
 	public PageResult findPage(int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize);		
-		Page<TbBrand> page=   (Page<TbBrand>) brandMapper.selectByExample(null);
+		
+		PageHelper.startPage(pageNum, pageSize);//分页
+		
+		Page<TbBrand> page = (Page<TbBrand>) brandMapper.selectByExample(null);
+		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-
 
 }

@@ -27,7 +27,7 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(int page,int size){			
+	public PageResult findPage(int page,int size){
 		return brandService.findPage(page, size);
 	}
 }
