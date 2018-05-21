@@ -20,6 +20,15 @@ public interface BrandService {
 	 * @return
 	 */
 	public PageResult findPage(int pageNum,int pageSize);
+	/**
+	 * 新增
+	 * @param tbBrand
+	 */
+	void add(TbBrand tbBrand);
+
+	void update(TbBrand tbBrand);
+
+	TbBrand findOne(Long id);
 
 	
 }

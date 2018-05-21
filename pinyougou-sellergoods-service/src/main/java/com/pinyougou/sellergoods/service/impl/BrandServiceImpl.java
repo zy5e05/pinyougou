@@ -33,5 +33,17 @@ public class BrandServiceImpl implements BrandService {
 		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
+	@Override
+	public void add(TbBrand tbBrand) {
+		brandMapper.insert(tbBrand);
+	}
+	@Override
+	public TbBrand findOne(Long id) {
+		return brandMapper.selectByPrimaryKey(id);
+	}
+	@Override
+	public void update(TbBrand tbBrand) {
+		brandMapper.updateByPrimaryKey(tbBrand);
+	}
 
 }
