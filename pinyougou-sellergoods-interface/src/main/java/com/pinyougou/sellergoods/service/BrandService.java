@@ -30,5 +30,9 @@ public interface BrandService {
 
 	TbBrand findOne(Long id);
 
+	void delete(long[] ids);
+
+	PageResult findPage(TbBrand tbBrand, int pageNum, int pageSize);
+
 	
 }
