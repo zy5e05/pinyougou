@@ -76,5 +76,34 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 			}			
 		);
 	}
-    
+    $scope.findByParentId=function(parentId){
+    	itemCatService.findByParentId(parentId).success(
+    			function(response){
+    				$scope.list=response;
+    			}
+    	);
+    }
+    // 定义一个面包屑等级变量
+    $scope.grade=1; // 默认为1级
+    // 提供对外set方法
+    $scope.setGrade=function(value){
+    	$scope.grade=value;
+    }
+    // 读取等级的方法 传入的是一个entity对象
+    $scope.selectList=function(p_entity){
+    	// 对当前的grade等级进行判断
+    	if($scope.grade==1){
+    		$scope.entity_1=null;
+    		$scope.entity_2=null;
+    	}
+    	if($scope.grade==2){
+    		$scope.entity_1=p_entity;
+    		$scope.entity_2=null;
+    	}
+    	if($scope.grade==3){
+    		$scope.entity_2=p_entity;
+    	}
+    	$scope.findByParentId(p_entity.id);
+    }
+	
 });	
