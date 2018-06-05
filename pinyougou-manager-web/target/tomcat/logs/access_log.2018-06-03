@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /admin/brand.html HTTP/1.1" 302 - http-bio-9101-exec-8 5
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /login.html HTTP/1.1" 304 - http-bio-9101-exec-8 1
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /css/webbase.css HTTP/1.1" 304 - http-bio-9101-exec-8 9
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /css/pages-login-manage.css HTTP/1.1" 304 - http-bio-9101-exec-8 6
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /plugins/angularjs/angular.min.js HTTP/1.1" 304 - http-bio-9101-exec-8 2
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /js/base.js HTTP/1.1" 200 39 http-bio-9101-exec-8 1
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /js/service/loginService.js HTTP/1.1" 200 131 http-bio-9101-exec-8 1
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /js/controller/indexController.js HTTP/1.1" 200 266 http-bio-9101-exec-8 2
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /img/wx_cz.jpg HTTP/1.1" 200 7171 http-bio-9101-exec-8 2
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /js/plugins/jquery/jquery.min.js HTTP/1.1" 304 - http-bio-9101-exec-8 44
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /js/plugins/sui/sui.min.js HTTP/1.1" 304 - http-bio-9101-exec-8 58
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /js/plugins/jquery-placeholder/jquery.placeholder.min.js HTTP/1.1" 304 - http-bio-9101-exec-8 18
+0:0:0:0:0:0:0:1 - - [03/Jun/2018:11:09:31 +0800] "GET /js/pages/jquery.slideunlock.js HTTP/1.1" 304 - http-bio-9101-exec-8 2
