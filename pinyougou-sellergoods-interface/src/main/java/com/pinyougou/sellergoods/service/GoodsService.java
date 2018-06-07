@@ -1,6 +1,7 @@
 package com.pinyougou.sellergoods.service;
 import java.util.List;
 import com.pinyougou.pojo.TbGoods;
+import com.pinyougou.pojo.TbItem;
 
 import entity.Goods;
 import entity.PageResult;
@@ -64,5 +65,13 @@ public interface GoodsService {
 
 
 	void updateStatus(Long[] ids, String status);
+
+	/**
+	 * 根据商品ID和状态查询Item表信息
+	 * @param goodsIds
+	 * @param status
+	 * @return
+	 */
+	List<TbItem> findItemListByGoodsIdandStatus(Long[] goodsIds, String status);
 
 }

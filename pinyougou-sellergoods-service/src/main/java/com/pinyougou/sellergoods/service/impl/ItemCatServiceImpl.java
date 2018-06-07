@@ -1,6 +1,8 @@
 package com.pinyougou.sellergoods.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -22,6 +24,8 @@ public class ItemCatServiceImpl implements ItemCatService {
 
 	@Autowired
 	private TbItemCatMapper itemCatMapper;
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	/**
 	 * 查询全部
@@ -106,6 +110,12 @@ public class ItemCatServiceImpl implements ItemCatService {
 		TbItemCatExample example1=new TbItemCatExample();
 		Criteria criteria1 = example1.createCriteria();
 		criteria1.andParentIdEqualTo(parentId);
+		//每次执行查询的时候,一次性读取缓存进行存储 因为每次增删改都会执行此方法
+		List<TbItemCat> list = findAll();
+		for (TbItemCat itemCat : list) {
+			redisTemplate.boundHashOps("itemCat").put(itemCat.getName(), itemCat.getTypeId());
+		}
+		System.out.println("将模板ID放入缓存");
 		return  itemCatMapper.selectByExample(example1);
 	}
 	
